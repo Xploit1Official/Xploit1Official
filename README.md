@@ -1,4 +1,4 @@
--- Function to create an outline effect for a part
+
 local function createOutline(part)
     local outline = Instance.new("SelectionBox")
     outline.LineThickness = 0.05
@@ -7,7 +7,6 @@ local function createOutline(part)
     outline.Parent = part
 end
 
--- Function to apply highlight to a player
 local function highlightPlayer(player)
     local character = player.Character
     if character then
@@ -19,7 +18,6 @@ local function highlightPlayer(player)
     end
 end
 
--- Function to remove highlight from a player
 local function removeHighlight(player)
     local character = player.Character
     if character then
@@ -45,7 +43,6 @@ local function removeAllHighlights()
     end
 end
 
--- Highlight all players when the script starts
 highlightAllPlayers()
 
 -- Connect functions to player added/removed events to update highlights accordingly
@@ -57,7 +54,6 @@ game.Players.PlayerRemoving:Connect(function(player)
     removeHighlight(player)
 end)
 
--- Raycast to make highlights visible through walls
 local function raycastToPlayers()
     for _, player in ipairs(game.Players:GetPlayers()) do
         local character = player.Character
@@ -79,8 +75,7 @@ local function raycastToPlayers()
     end
 end
 
--- Update the highlights periodically to make them visible through walls
 while true do
     raycastToPlayers()
-    wait(0.1) -- Adjust the frequency based on your preference and performance considerations
+    wait(1) -- Adjust the frequency based on your preference and performance considerations
 end
